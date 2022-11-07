@@ -1,6 +1,12 @@
 import os
+from pathlib import Path
 import sys
 import time
+
+def print_dict(d):
+    for k, v in d.items():
+        print(f"{k} -> {v}")
+
 
 if (len(sys.argv) < 3):
     print("Usage: python wordcount.py <folder> <extension>")
@@ -14,19 +20,17 @@ word_frequency = {}
 
 start = time.time()
 
-# recursively walk through the folder
-for root, dirs, files in os.walk(folder):
-    for file in files:
-        # only process files with the given extension
-        if file.endswith(ext):
-            with open(os.path.join(root, file), 'r') as f:
-                for line in f:
-                    for word in line.split():
-                        w = word.lower()
-                        if w in word_frequency:
-                            word_frequency[w]+= 1
-                        else:
-                            word_frequency[w] = 1
+files = lambda x: [os.path.join('./', file) for file in Path(x).rglob('*' + ext)] 
+open_files = lambda x: [open(file, 'r') for file in files(x)]
+file_contents = lambda x: [file.read().replace('\n', ' ') for file in open_files(x)]
+words = lambda x: [word.lower() for content in file_contents(x) for word in content.split(' ') if word != '']
+inc = lambda x: x + 1; 
+word_count = lambda x: [word_frequency.update({word: inc(word_frequency.get(word, 0))}) for word in words(x)]
 
-print(word_frequency)
+# word_count = lambda x: [word_frequency.update({word: word_frequency.get(word, 0)+1}) for word in [word.lower() for content in [file.read().replace('\n', ' ') for file in [open(file, 'r') for file in [os.path.join('./', file) for file in Path(x).rglob('*' + ext)] ]] for word in content.split(' ') if word != '']]
+
+word_count(folder)
+
+print_dict(word_frequency)
+
 print(time.time() - start)

@@ -1,4 +1,4 @@
-Philipp 
+Philipp
 philipp
 jakob
 gaugla
