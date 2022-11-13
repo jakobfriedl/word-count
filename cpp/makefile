@@ -13,8 +13,8 @@ funct: .outputFolder
 
 funct_dat: .outputFolder
 	clang++ -std=c++20 -lstdc++ -lm functional.cpp -o out/functional
-	./out/functional ./Dat
+	./out/functional ./Dat .txt
 
 funct_data: .outputFolder
 	clang++ -std=c++20 -lstdc++ -lm functional.cpp -o out/functional
-	./out/functional ./Data
+	./out/functional ./Data .txt
