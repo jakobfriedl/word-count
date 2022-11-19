@@ -1,4 +1,4 @@
-all: first funct funct_dat funct_data
+all: first funct funct_dat funct_data opt_data opt_dat
 
 .outputFolder:
 	mkdir -p out
@@ -18,3 +18,11 @@ funct_dat: .outputFolder
 funct_data: .outputFolder
 	clang++ -std=c++20 -lstdc++ -lm functional.cpp -o out/functional
 	./out/functional ./Data .txt
+
+opt_dat: .outputFolder
+	clang++ -std=c++20 -lstdc++ -lm functional_opt.cpp -o out/functional_opt
+	./out/functional_opt ./Dat .txt
+
+opt_data: .outputFolder
+	clang++ -std=c++20 -lstdc++ -lm functional_opt.cpp -o out/functional_opt
+	./out/functional_opt ./Data .txt
