@@ -2,9 +2,14 @@
 
 WordCount-project in C++ by Jakob Friedl (if20b089) and Philipp Haider (if20b097). This project was developed for the Functional Programming Course at UAS Technikum Wien in the winter-semester 2022/23. 
 
-## Compile Programm
+## Install dependencies
+```bash
+apt-get install libboost-filesystem-dev
+```
 
-The Makefile compiles and runs the program with the current directory(".") and ".txt" as extension, use `make`.
+## Compile
+
+The Makefile compiles and runs the program and counts words in .txt files in the current working directory.
 
 To compile the program without the Makefile, use:
 
@@ -13,7 +18,7 @@ clang++ -std=c++20 -lstdc++ -lm word-count.cpp
 ./a.out <directory> <extension>
 ```
 
-## Valgrind Memory Check
+## Run Valgrind Memory Check
 
 The `run.sh`-script will compile the program and run the valgrind memory check with the current directory(".") and ".txt" as file-extension.
 
