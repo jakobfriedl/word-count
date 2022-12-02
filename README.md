@@ -4,7 +4,8 @@ WordCount-project in C++ by Jakob Friedl (if20b089) and Philipp Haider (if20b097
 
 ## Install dependencies
 ```bash
-apt-get install libboost-filesystem-dev
+apt install libboost-filesystem-dev
+apt install valgrind
 ```
 
 ## Compile
