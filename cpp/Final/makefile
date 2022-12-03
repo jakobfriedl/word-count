@@ -5,4 +5,4 @@ all: word-count
 
 word-count: .outputFolder
 	clang++ -std=c++20 -lstdc++ -lm word-count.cpp -o out/word-count
-	./out/word-count . .txt
+	./out/word-count ./data .txt
