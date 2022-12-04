@@ -21,7 +21,7 @@ clang++ -std=c++20 -lstdc++ -lm word-count.cpp
 
 ## Run Valgrind Memory Check
 
-The `run.sh`-script will compile the program and run the valgrind memory check with the current directory(".") and ".txt" as file-extension.
+The `run.sh`-script compiles the program and runs the valgrind memory check with the current directory and ".txt" as the program arguments.
 
 ```sh
 sh run.sh
@@ -30,12 +30,13 @@ sh run.sh
 
 valgrind --leak-check=yes ./out/word-count . .txt
 ```
+
 ## Test Script
-The `test.sh`-script will compile the programm and do a run with nested folders, a run for a single file, a comparison between the solution and the output as well as the valgrind memory check.
+The `test.sh`-script compiles the program and execute a run with nested folders, a run for a single file, a comparison between the solution and the output, as well as the valgrind memory check.
 
 ```sh
 sh test.sh
 ```
 
 ## Comparison Folder
-The comparison folders includes a C++ programm to compare 2 Textfiles, the solution from moodle for the _tolower and a make file to compare the solutions. The make file compiles the comparison.cpp and the word-count.cpp first and then executes the comparison.
+The comparison folder includes a C++ program to compare 2 Textfiles, the moodle lowercase-reference-file and a Makefile to compare the solutions. The make file compiles the comparison.cpp and then compares the most most recent output-file of word-count.cpp to the solution.txt-file.
