@@ -20,10 +20,22 @@ void clean(string &s)
     s = regex_replace(s, reg, "");
 }
 
-int main()
+int main(int argc, char *argv[])
 {
-    ifstream file1("solution.txt");
-    ifstream file2("../output/output.txt");
+    string solution, compare;
+    if (argc == 3)
+    {
+        solution = argv[1];
+        compare = argv[2];
+    }
+    else
+    {
+        cout << "Usage: " << argv[0] << " path extension" << endl;
+        return 1;
+    }
+
+    ifstream file1(solution);
+    ifstream file2(compare);
 
     //check if files are empty
     if (file1.peek() == ifstream::traits_type::eof() || file2.peek() == ifstream::traits_type::eof())
