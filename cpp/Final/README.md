@@ -18,6 +18,15 @@ To compile the program without the Makefile, use:
 clang++ -std=c++20 -lstdc++ -lm word-count.cpp 
 ./a.out <directory> <extension>
 ```
+### Makefile
+The makefiles contains 2 options:
+- make word-count 
+    - compiles the program with the folder "data" which contains the sample data from Moodle and ".txt" as extension
+- make word-count-nested
+    - compiles the program with the folder-structure "nestedData" which contains 3 levels of folders and each contains the sample data from Moodle and ".txt" as extension
+- make
+    - without options, runs both "word-count" and "word-count-nested" 
+
 
 ## Run Valgrind Memory Check
 
