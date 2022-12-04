@@ -15,5 +15,5 @@ echo "word-count data"
 echo "comparison"
 ./comparison/out/comparison ./comparison/solution.txt ./output/output.txt
 
-#echo "valgrind"
-valgrind --leak-check=yes ./out/word-count . .txt
+echo "valgrind"
+valgrind --leak-check=yes ./out/word-count ./data .txt
